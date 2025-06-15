@@ -17,7 +17,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-activate-base: false
-          environment-file: MLProject/conda.yaml
+          environment-file: Workflow-CI/MLProject/conda.yaml
           activate-environment: rf_env
 
       - name: Install MLflow
@@ -25,5 +25,4 @@ jobs:
 
       - name: Train model via MLflow Project
         run: |
-          mlflow run Workflow-CI/MLProject -P data_path=namadataset_preprocessing/heart_processed.csv
-      
+          mlflow run ./Workflow-CI/MLProject -P data_path=heart_processed.csv
