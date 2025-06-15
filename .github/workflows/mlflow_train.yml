@@ -25,4 +25,5 @@ jobs:
 
       - name: Train model via MLflow Project
         run: |
-          mlflow run ./MLProject -P data_path=heart_processed.csv
+          mlflow run Workflow-CI/MLProject -P data_path=namadataset_preprocessing/heart_processed.csv
+      
