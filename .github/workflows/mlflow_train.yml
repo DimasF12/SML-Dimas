@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
-      - name: Setup Python
+        
+      - name: Setup Python 3.12.7
         uses: actions/setup-python@v5
         with:
           python-version: '3.12.7'
@@ -21,9 +21,13 @@ jobs:
       - name: Setup Miniconda and activate environment
         uses: conda-incubator/setup-miniconda@v2
         with:
+    
           auto-activate-base: false
           environment-file: Workflow-CI/MLProject/conda.yaml
           activate-environment: rf_env
+          miniforge-version: latest
+          mamba-version: "*"
+
 
       - name: Train model via MLflow Project
         run: |
