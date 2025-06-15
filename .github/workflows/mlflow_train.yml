@@ -20,7 +20,7 @@ jobs:
           environment-file: Workflow-CI/MLProject/conda.yaml
           activate-environment: rf_env
 
-      - name: Install MLflow
+      - name: Install MLflow:2.19.0
         run: pip install mlflow
 
       - name: Train model via MLflow Project
