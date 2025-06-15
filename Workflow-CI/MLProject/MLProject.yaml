@@ -1,4 +1,4 @@
-name: train_rf
+name: heart-disease-model
 
 conda_env: conda.yaml
 
