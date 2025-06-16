@@ -1,9 +1,7 @@
-name: heart-disease-model
-
-conda_env: conda.yaml
+name: rf_tuning_project
 
 entry_points:
   main:
     parameters:
       data_path: {type: str, default: "heart_processed.csv"}
-    command: "python modelling.py --data_path {data_path}"
+    command: "python modelling_tuning.py --data_path {data_path}"
