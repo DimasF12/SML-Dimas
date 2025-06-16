@@ -13,12 +13,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.12.7 # Ini akan menyiapkan interpreter Python
+      - name: Set up Python 3.12.7 
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12.7' # Versi Python yang Anda inginkan
+          python-version: '3.12.7'
 
-      - name: Install dependencies # Langkah ini akan membuat venv dan menginstal dari requirements.txt
+      - name: Install dependencies
         run: |
           python -m venv .venv                         # Membuat virtual environment bernama '.venv'
           source .venv/bin/activate                     # Mengaktifkan virtual environment
@@ -26,9 +26,6 @@ jobs:
           pip install -r Workflow-CI/MLProject/requirements.txt # Menginstal dependensi dari file Anda
 
       - name: Train model via MLflow Project
-        # Penting: Setiap perintah 'run' setelah aktivasi venv harus diawali dengan 'source .venv/bin/activate'
-        # atau Anda bisa menggunakan 'shell: bash -l {0}' jika menggunakan actions/setup-python
-        # Namun, cara terbaik adalah memastikan environment aktif.
         run: |
           source .venv/bin/activate # Mengaktifkan kembali virtual environment untuk langkah ini
           mlflow run ./Workflow-CI/MLProject/ -P data_path=heart_processed.csv
